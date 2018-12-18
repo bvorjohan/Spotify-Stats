@@ -1,0 +1,93 @@
+<!-- <p>
+  artist-list works!
+</p> -->
+
+
+
+<div class="container">
+
+
+
+  <!-- <h2>List of All the Artists</h2> -->
+
+
+      <mat-accordion>
+        <div *ngFor="let artist of artists; index as i"
+        class="artist-unit">
+        <div class="artist-block">
+          <mat-expansion-panel class="mat-elevation-z4"
+                        (opened)="panelOpenState = artist.id"
+                        (closed)="panelOpenState = [ panelOpenState == artist.id ? '' : panelOpenState ]"
+                        (opened)="genresString = artist.genres.join(', ')">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!-- {{artist.name}} -->
+                {{panelOpenState == artist.id ? '' : artist.name}}
+              </mat-panel-title>
+              <mat-panel-description>
+
+                <!-- {{ artist.genres[0] }} -->
+                {{ panelOpenState == artist.id ? '' : (artist.genres.length==0 ? "none" : artist.genres[0]) }}
+
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="expansion-contents">
+              <div class="album-image">
+                <img src="{{ artist.images[0].url }}" alt="" width="250" class="artist-image-item">
+              </div>
+              <div class="artist-info-wrapper">
+                <div class="artist-info-item">
+                  <div class="artist-info-label">
+                    <p>Artist</p>
+                  </div>
+                  <div class="artist-info-value">
+                    <p>{{ artist.name }}</p>
+                  </div>
+                </div>
+                <div class="artist-info-item">
+                  <div class="artist-info-label">
+                    <p>Genres</p>
+                  </div>
+                  <div class="artist-info-value">
+                    <p>{{ genresString }}</p>
+                  </div>
+                </div>
+                <div class="artist-info-item">
+                  <div class="artist-info-label">
+                    <p>Spotify Followers</p>
+                  </div>
+                  <div class="artist-info-value">
+                    <p>{{ artist.followers.total | number:'.0' }}</p>
+                  </div>
+                </div>
+                <div class="artist-info-item">
+                  <div class="artist-info-label">
+                    <p>Artist Page</p>
+                  </div>
+                  <div class="artist-info-value">
+                    <a href="{{ artist.external_urls.spotify }}"><i class="material-icons" >launch</i></a>
+                    <!-- <mat-icon svgIcon="launch"></mat-icon> -->
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="artist-info-labels">
+                <p>Track</p>
+                <p>Artist</p>
+                <p>Album</p>
+                <p>Release Date</p>
+                <p>Length</p>
+              </div>
+              <div class="artist-info-values">
+                <p>{{ artist.name }}</p>
+                <p>{{ artist.genres[0] }}</p>
+                <p>{{ artist.followers.total }}</p>
+              </div> -->
+            </div>
+          </mat-expansion-panel>
+        </div>
+
+        </div>
+      </mat-accordion>
+
+
+</div>

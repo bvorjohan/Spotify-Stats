@@ -1,0 +1,54 @@
+.container{
+  padding: 1em
+}
+
+.container > div{
+  font-family: 'Roboto', sans-serif;
+  font-size: 42px;
+}
+
+
+.artist-info-wrapper{
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.artist-info-item{
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(230px, 2fr);
+
+}
+
+.artist-info-label{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color:  #1DB954;
+
+}
+
+.artist-info-value{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+
+}
+
+.expansion-contents{
+  display: grid;
+  grid-template-columns: minmax(300px,2fr) minmax(380px, 4fr) ;
+}
+
+.artist-image-item{
+  box-shadow: 10px 10px 5px grey;
+}
+
+.artist-unit .mat-expansion-panel-header-title,
+.artist-unit .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.artist-unit .mat-expansion-panel-header-description {
+  color: #1DB954;
+  justify-content: space-between;
+  align-items: center;
+}
